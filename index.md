@@ -2,7 +2,7 @@
 
 茫茫人海中找到我的博客，辛苦了，我只是一个搬运工，欢迎来看我的博客。
 
-如果你对UI感兴趣，可以关注我在从事的工作：https://github.com/vipkid-edu/pixi-vfui
+如果你对UI感兴趣，可以关注我在从事的工作：https://vipkid-edu.github.io/vf-docs/
 
 ### 你好! 这不是给你看的，你想看也无所谓。
 
