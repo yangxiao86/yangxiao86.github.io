@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+        
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <title>vf-gui-plug</title>
+    <style>
+        html,body {
+            margin: 0px;
+            padding: 0px;
+        }
+        canvas {
+            border: 3px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script> -->
+    <script>
+const str = `#EXTM3U
+
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="test_audio",LANGUAGE="eng",NAME="Audio 1",AUTOSELECT=YES,DEFAULT=YES,URI="m3u8-audio.m3u8"
+
+#EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="subs",NAME="English",DEFAULT=YES,AUTOSELECT=YES,FORCED=NO,LANGUAGE="en",CHARACTERISTICS="public.accessibility.transcribes-spoken-dialog, public.accessibility.describes-music-and-sound",URI="m3u8-webvvt.m3u8"
+
+#EXT-X-STREAM-INF:BANDWIDTH=1924009,CODECS="avc1.4d4028",RESOLUTION=1920x1080,AUDIO="test_audio",SUBTITLES="subs"
+1080-video.m3u8
+
+#EXT-X-STREAM-INF:BANDWIDTH=577610,CODECS="avc1.4d401e",RESOLUTION=640x360,AUDIO="test_audio",SUBTITLES="subs"
+360-video.m3u8
+
+
+#EXT-X-STREAM-INF:BANDWIDTH=128000,CODECS="mp4a.40.2",AUDIO="test_audio",SUBTITLES="subs"
+m3u8-audio.m3u8`;
+        const bb = new BlobBuilder(); // 需要合适的前缀: window.MozBlobBuilder 或者 window.WebKitBlobBuilder
+        const blob = new Blob([str], 
+        { type: "text/plain; charset=x-user-defined" });
+        // 生成一个本地的url
+        const rUrl = window.URL.createObjectURL(blob);
+
+
+        console.log(rUrl);
+        let video = document.createElement('video');
+        video.crossOrigin = 'anonymous';
+        video.preload="auto"
+
+        video.controls = true;
+        video.width = 1000;
+        video.type = ''
+        document.body.appendChild(video);
+        video.src = rUrl;// 'assets/test/mp4/fmp4/master.m3u8';
+        // const file = new FileReader();
+        // file.onloadend = (e)=>{
+        //     console.log(e.target.result);
+        //     video.src = rUrl; 
+        // }
+        // file.readAsDataURL(blob)
+
+        // setTimeout(() => {
+        //     video.src = rUrl;
+        // }, 5000);
+        
+
+        // setTimeout(() => {
+        //     window.URL.revokeObjectURL(rUrl)
+        // }, 120);
+        
+
+    </script>
+
+    <!-- <link href="//vjs.zencdn.net/7.10.2/video-js.min.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/7.10.2/video.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script> -->
+<!-- <video
+    id="my-player"
+    class="video-js"
+    controls
+    preload="auto"
+    poster="//vjs.zencdn.net/v/oceans.png"
+    data-setup='{}'>
+  <source src="assets/test/mp4/output-fmp4.m3u8" type="video/mp4"></source>
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a
+    web browser that
+    <a href="https://videojs.com/html5-video-support/" target="_blank">
+      supports HTML5 video
+    </a>
+  </p>
+</video> -->
+<!-- 
+<script>
+  if(Hls.isSupported()) {
+    var video = document.createElement("video");
+    video.width = 720;
+    video.controls = true;
+    document.body.appendChild(video);
+    var hls = new Hls();
+    hls.loadSource('assets/test/mp4/output.m3u8');
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED,function() {
+      video.play();
+  });
+ }
+</script> -->
+
+
+
+    <!-- <script src='node_modules/@vf.js/launcher/dist/launcher.min.js'></script>
+    <div id="buttons" style="width: 100%;height: auto;display: flex;justify-content: space-between;flex-direction: row;flex-wrap: wrap;"></div>
+    <div id="vfApp" style="width: 100%; height: 100%; position: absolute;margin:0;overflow: hidden;"></div>
+    <script>
+        createVF({
+            container: document.getElementById("vfApp"),  // 需要放置的容器
+            debug: true,
+            showFPS: false,
+            usePlayer: false,
+            resolution: window.devicePixelRatio || 1,
+            debugVFPath: './node_modules/@vf.js/vf/dist/vf.min.js',
+            // exclude:['player'], // 必填
+            width:900, // 设计尺寸
+            height:768, // 设计尺寸
+            // libs:["dist/test.js"], // 你项目编译后的入口文件,需申明全局变量，如 `MainTest`, 也可通过其他方式引入，此处可不写。
+        }, function (engine) {
+            vf.utils.readFileSync(`dist/test.js`, {}).then(function(value){
+                // 初始化你的项目，engine 中的类型为 EngineAPI. 具体查看 'node_modules/@vf.js/launcher/launcher.d.ts
+                new vf.gui.module.default(engine.app,engine.stage);
+            });
+            engine.onMessage = function(e){
+                console.log(e);
+            }
+            
+        });
+    
+    </script> -->
+</body>
+
+</html>
