@@ -41,7 +41,7 @@ const str = `#EXTM3U
 
 #EXT-X-STREAM-INF:BANDWIDTH=128000,CODECS="mp4a.40.2",AUDIO="test_audio",SUBTITLES="subs"
 m3u8-audio.m3u8`;
-        const bb = new BlobBuilder(); // 需要合适的前缀: window.MozBlobBuilder 或者 window.WebKitBlobBuilder
+
         const blob = new Blob([str], 
         { type: "text/plain; charset=x-user-defined" });
         // 生成一个本地的url
