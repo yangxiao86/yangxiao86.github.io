@@ -4,6 +4,14 @@
 
 记录一下，我的时间线~
 
+## 2023年
+
+3D 数字孪生研究
+
+## 2022年
+
+疫情，更多的是学习，陪娃
+
 ## 2021年
 
 博客园的园龄竟然达到了13年....
@@ -116,5 +124,6 @@ mail:ifyx@qq.com
 
 qq:2884587
 
+掘金：[https://juejin.cn/user/671180664355155](https://juejin.cn/user/671180664355155)
 博客：[https://www.cnblogs.com/yangxiao/](https://www.cnblogs.com/yangxiao/m)
 
